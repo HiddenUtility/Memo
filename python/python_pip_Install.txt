@@ -1,12 +1,14 @@
 @echo off
 
-pip install -U pip
-
+python -m pip install --upgrade pip
+pip install tqdm
+pip install pandas
+pip install pythonnet
 
 pip install pip-review
-pip install tqdm
+
 pip install joblib
-pip install pandas
+
 pip install numpy
 pip install scipy
 pip install xlrd
@@ -29,9 +31,15 @@ pip install PyMySQL
 pip install psycopg2
 pip install PyInstaller
 pip install h5py
+pip install streamlit
+
+echo IED install ?
+pause
+
 pip install spyder
 
-rem ツイッターAPIを扱うパッケージです。
+echo ツイッターAPIを扱うパッケージです。
+pause
 pip install tweepy
 
 rem 時系列データの統計処理とか。
