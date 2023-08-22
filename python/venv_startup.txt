@@ -1,0 +1,45 @@
+1.　好きなpython をインストールする
+環境PATH追加は不要
+
+2.　仮想環境を構築するディレクトリに移動
+
+3.　ディレクトリに移動してコマンドを打つ
+
+ py -3.11 -m venv .venv
+
+4. 仮想環境を実行する
+ 
+ .venv\Scripts\activate
+
+5.　ほしいライブラリを入れる
+ 
+オフライン環境化ではダウンロードできないので、バイナリファイルからインストールする。
+インストールされているライブラリリストをrequirements.txtで得て、downloadで一括で落とす。
+
+pip freeze > requirements.txt
+pip download -r requirements.txt -d libs
+
+下記コマンドで実行する。libsというディレクトリにdownloadしたwhlがあると仮定する。
+
+pip install --no-index --find-link=libs wheel
+pip install --no-index --find-link=libs -r requirements.txt
+
+6. カレント内に起動bat作っておくと便利
+
+仮想で立ち上げたのち実行する。
+@echo
+set ENVE_PATH = C:\python\pjt
+call %ENVE%\.venv\Scripts\activate
+cd %ENVE%
+python __main__.py
+call deactivate
+
+環境立ち上げるだけ
+@echo off
+call .venv\Scripts\activate
+cmd /k
+
+
+
+
+
