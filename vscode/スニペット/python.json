@@ -1,0 +1,108 @@
+{
+	"main文": {
+		"prefix": "main",
+		"body": [
+			"def main():",
+			"    ${1:...}",
+			"",
+			"if __name__ == '__main__':",
+			"    main()"
+		]
+		
+	},
+
+	"interface": {
+		"prefix": "interface",
+		"body": [
+			"from abc import ABC",
+			"abstractmethod",
+			"",
+			"",
+			"class Interface(ABC):",
+			"    ${1:...}"
+		]
+	},
+
+	"annotations": {
+		"prefix": "annotations",
+		"body": [
+			"from __future__ import annotations\n"
+		]
+	},
+
+	"entrypoint": {
+		"prefix": "entrypoint",
+		"body": [
+			"__copyright__    = 'Copyright (C) 2024 TMC'",
+			"__version__      = '1000'",
+			"__license__      = 'BSD-3-Clause'",
+			"__author__       = 'HirokiUchimura'",
+			"__author_email__ = 'hiroki_uchimura_zb@mail.toyota.co.jp'",
+			"__url__          = 'https://tmc-droom-gitlab.com/HirokiUchimura'\n__all__ = [",
+			"$0,",
+			"]"
+		]
+		
+	},
+
+	"trychatch": {
+		"prefix": "trychatch",
+		"body": [
+			"try:",
+			"    ${1:...}",
+			"except Exception as e:",
+			"    raise e",
+		]
+		
+	},
+
+
+	"selfclassname": {
+		"prefix": "selfclassname",
+		"body": "f'{self.__class__.__name__}$0'"
+	},
+
+
+	"generics": {
+		"prefix": "generics",
+		"body": [
+			"from typing import TypeVar, Sequence",
+			"",
+			"",
+			"T = TypeVar('T', ${1:type})",
+		]
+		
+	},
+
+	"encapsulate": {
+		"prefix": "encapsulate",
+		"body": [
+			"__${1:value} : ${2:object}",
+			"$0",
+			"",
+			"@property",
+			"def ${3:value}(self) -> $2:",
+			"    return self.__$1"
+		],
+		"description" : "クラスのプロパティを作成する。"
+	},
+
+
+	"enum": {
+		"prefix": "enum",
+		"body": [
+			"from enum import Enum, auto",
+			"",
+			"",
+			"class ${1:MyEnum}(Enum):",
+			"    ${2:name} = auto()",
+		],
+		"description" : "列挙型を作成する。"
+		
+
+	}
+
+
+
+
+}
