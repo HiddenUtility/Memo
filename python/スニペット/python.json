@@ -1,0 +1,135 @@
+{
+	"main文": {
+		"prefix": "main",
+		"body": [
+			"def main():",
+			"    ${1:...}",
+			"",
+			"if __name__ == '__main__':",
+			"    main()"
+		]
+		
+	},
+
+	"インタフェース": {
+		"prefix": "interface",
+		"body": [
+			"from abc import ABC, abstractmethod",
+			"",
+			"",
+			"class Interface(ABC):",
+			"    ${1:...}"
+		]
+	},
+
+	"アノテーション": {
+		"prefix": "annotations",
+		"body": [
+			"from __future__ import annotations\n"
+		]
+	},
+
+	"エントリーポイント": {
+		"prefix": "entrypoint",
+		"body": [
+			"__copyright__    = 'Copyright (C) 2024 TMC'",
+			"__version__      = '1000'",
+			"__license__      = 'BSD-3-Clause'",
+			"__author__       = 'HirokiUchimura'",
+			"__author_email__ = 'hiroki_uchimura_zb@mail.toyota.co.jp'",
+			"__url__          = 'https://tmc-droom-gitlab.com/HirokiUchimura'\n__all__ = [",
+			"$0,",
+			"]"
+		]
+		
+	},
+
+	"トライキャッチ": {
+		"prefix": "trychatch",
+		"body": [
+			"try:",
+			"    ${1:...}",
+			"except Exception as e:",
+			"    raise e",
+		]
+		
+	},
+
+
+	"型チェック": {
+		"prefix": "typecheck",
+		"body": [
+			"if not isinstance(${1:object}, ${2:type}):",
+			"    raise TypeError(f'$1は{type($1)}です。$2オブジェクトではありません。')",
+			"$0",
+		]
+		
+	},
+
+	"クラス名": {
+		"prefix": "selfclassname",
+		"body": "f'{self.__class__.__name__}$0'"
+	},
+
+
+	"ジェネリクス": {
+		"prefix": "generics",
+		"body": [
+			"from typing import TypeVar, Sequence",
+			"",
+			"",
+			"T = TypeVar('T', ${1:type})",
+		]
+		
+	},
+
+	"クラスプロパティ": {
+		"prefix": "encapsulate",
+		"body": [
+			"__${1:value} : ${2:object}",
+			"$0",
+			"",
+			"@property",
+			"def ${3:value}(self) -> $2:",
+			"    return self.__$1"
+		],
+		"description" : "クラスのプロパティを作成する。"
+	},
+
+	"内包リスト": {
+		"prefix": "comprehension_list",
+		"body": [
+			"[${2:v} for ${3:v} in ${1:iterator}]",
+
+		],
+		"description" : "内包表記を各。pythonの内包はオブジェクトに対してかけないので戻らないといけない。"
+	},
+
+	"内包辞書": {
+		"prefix": "comprehension_dict",
+		"body": [
+			"{${2:k : v} for ${2:k, v} in ${1:iterator}}",
+
+		],
+		"description" : "内包表記を各。pythonの内包はオブジェクトに対してかけないので戻らないといけない。"
+	},
+
+
+	"列挙型": {
+		"prefix": "enum",
+		"body": [
+			"from enum import Enum, auto",
+			"",
+			"",
+			"class ${1:MyEnum}(Enum):",
+			"    ${2:name} = auto()",
+		],
+		"description" : "列挙型を作成する。"
+		
+
+	}
+
+
+
+
+}
